@@ -4,7 +4,7 @@ public class test {
 
 	public static void main(String[] args) {
 		
-		BasePage page = new BasePage();
+		BasePage page = new ProductPage(null);
 		page.setVisible(true);
 
 	}

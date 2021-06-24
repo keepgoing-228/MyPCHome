@@ -1,7 +1,10 @@
 package app;
+import javax.swing.JFrame;
+
 import database.Database;
 import myHTTP.Request;
 import myHTTP.Response;
+import page.BasePage;
 import route.ProductInfo;
 import route.RouteException;
 import route.Router;
@@ -12,6 +15,7 @@ public class App {
 	public static enum path{UPLOAD, PRODUCT_INFO, HOME, Shop, LOGOUT, CART, SHOP, LOGIN, PERSONAL_INFO, UPLOADED_PRODUCT, OFF_SHELF, Upload, CHECKOUT};
 	public static Database database;
 	public static String USER = null;
+	public static BasePage location = null;
 	
 	public static void main(String[] args) {
 		
