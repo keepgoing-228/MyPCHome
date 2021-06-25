@@ -1,24 +1,23 @@
-package page;
-
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import org.json.JSONObject;
-
 import app.App;
-import myHTTP.Request;
 import myHTTP.Response;
 
-/**
- * @author huangzhangyu
- *‰∏äÊû∂ÂïÜÂìÅÁöÑÈ†ÅÈù¢
- */
-public class UploadPage extends BasePage implements ActionListener{
+public class UploadPage extends ProfilePage implements ActionListener{
 
 	private JTextField name = new JTextField(10);
 	private JComboBox<String> brand = new JComboBox<String>();
@@ -28,10 +27,96 @@ public class UploadPage extends BasePage implements ActionListener{
 	private JTextField discription = new JTextField(10);
 	private JFileChooser picture = new JFileChooser();
 	
-	public UploadPage(Response response) {
+	UploadPage() {
+		// Panel
+		JPanel rightPanel = new JPanel();
+		rightPanel.setLayout(new GridBagLayout());
+		rightPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		JPanel productPanel = new JPanel();
+		productPanel.setLayout(new GridBagLayout());
+		productPanel.setBorder(BorderFactory.createEtchedBorder());
+		
+		//label
+		JLabel nameLabel = new JLabel("∞”´~¶W∫Ÿ");
+		GridBagConstraints gridBag = new GridBagConstraints();
+		gridBag.fill = GridBagConstraints.BOTH;
+		gridBag.insets = new Insets(5,20,5,10);
+		gridBag.gridx = 0;
+		gridBag.gridy = 0;
+		productPanel.add(nameLabel, gridBag);
+				
+		JLabel brandLabel = new JLabel("´~µP");
+		gridBag.gridy = 1;
+		productPanel.add(brandLabel, gridBag);
+		
+		JLabel categoryLabel = new JLabel("√˛ßO");
+		gridBag.gridy = 2;
+		productPanel.add(categoryLabel, gridBag);
+		
+		JLabel numberLabel = new JLabel("¶s≥fº∆∂q");
+		gridBag.gridy = 3;
+		productPanel.add(numberLabel, gridBag);
+		
+		JLabel priceLabel = new JLabel("ª˘ø˙");
+		gridBag.gridy = 4;
+		productPanel.add(priceLabel, gridBag);
+		
+		JLabel discriptionLabel = new JLabel("±‘≠z");
+		gridBag.gridy = 5;
+		productPanel.add(discriptionLabel, gridBag);
+		
+		JLabel pictureLabel = new JLabel("πœ§˘");
+		gridBag.gridy = 6;
+		productPanel.add(pictureLabel, gridBag);
+		
 			
+		//text field
+		gridBag.insets = new Insets(5,20,5,10);
+		gridBag.gridx = 1;
+		gridBag.gridy = 0;
+		productPanel.add(name, gridBag);
+		
+		gridBag.gridy = 1;
+		productPanel.add(brand, gridBag);
+		
+		gridBag.gridy = 2;
+		productPanel.add(category, gridBag);
+		
+		gridBag.gridy = 3;
+		productPanel.add(number, gridBag);
+		
+		gridBag.gridy = 4;
+		productPanel.add(price, gridBag);
+		
+		gridBag.gridy = 5;
+		productPanel.add(discription, gridBag);
+		
+		gridBag.gridy = 6;
+		productPanel.add(picture, gridBag);
+		
+		//button
+		JButton uploadButton = new JButton("§W¨[");
+		uploadButton.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		gridBag.ipadx = 30;
+		gridBag.ipady = 20;
+		gridBag.gridx = 1;
+		gridBag.gridy = 7;
+		gridBag.insets = new Insets(15,300,10,300);
+		productPanel.add(uploadButton, gridBag);
+		
+		
+		
+		
+		// package
+		GridBagConstraints Grid = new GridBagConstraints();
+		Grid.fill = GridBagConstraints.BOTH;
+//		Grid.insets = new Insets(0,0,0,0);
+		Grid.gridx = 0;
+		Grid.gridy = 0;
+		rightPanel.add(productPanel, Grid);
+		this.add(rightPanel, BorderLayout.CENTER);
 	}
-
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
@@ -50,5 +135,5 @@ public class UploadPage extends BasePage implements ActionListener{
 	private JSONObject getData() {
 		return null;
 	}
-		
+
 }

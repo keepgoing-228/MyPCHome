@@ -23,15 +23,14 @@ import myHTTP.Response;
 public class ProfilePage extends BasePage implements ActionListener{
 	private final int WIDTH = 1000;
 	private final int HEIGHT = 800;
-	JLabel personalInfoLabel = new JLabel("基本資訊");
+	private JLabel personalInfoLabel = new JLabel("基本資訊");
 	private JButton personalInfoButton = new JButton("個人資料");
 	private JButton launchedProductButton = new JButton("已上架商品");
 	private JButton goOnMarketButton = new JButton("商品上架");
 	private JButton shoppingCartButton = new JButton("購物車");
 	
-	
 	public ProfilePage() {
-		this.setTitle("ProfilePage");
+//		this.setTitle("ProfilePage");
 //		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 //		this.setLayout(new BorderLayout());
 		
@@ -55,9 +54,11 @@ public class ProfilePage extends BasePage implements ActionListener{
 		
 		
 		
+		
 		//button
 		ProfilePanel.add(personalInfoLabel,gridBag);
 		personalInfoButton.addActionListener(this);
+		gridBag.gridx = 0;
 		gridBag.gridy = 1;
 		ProfilePanel.add(personalInfoButton,gridBag);
 		launchedProductButton.addActionListener(this);
@@ -67,6 +68,7 @@ public class ProfilePage extends BasePage implements ActionListener{
 		gridBag.gridy = 3;
 		ProfilePanel.add(goOnMarketButton,gridBag);
 		shoppingCartButton.addActionListener(this);
+		gridBag.insets = new Insets(3,0,3,0);
 		gridBag.gridy = 4;
 		ProfilePanel.add(shoppingCartButton,gridBag);
 		
@@ -75,7 +77,6 @@ public class ProfilePage extends BasePage implements ActionListener{
 		gridBag.gridy = 0;
 		gridBag.fill = GridBagConstraints.BOTH;
 		gridBag.insets = new Insets(0,0,300,0);
-		gridBag.anchor = GridBagConstraints.NORTH;
 		leftPanel.add(ProfilePanel,gridBag);
 		this.add(leftPanel,BorderLayout.WEST);
 	}
